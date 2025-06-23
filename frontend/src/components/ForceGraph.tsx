@@ -85,10 +85,10 @@ const ForceGraph: React.FC<ForceGraphProps> = ({
           'complements': '#ffb74d',
           'implements': '#ba68c8'
         };
-        return colors[d.relationship] || '#999';
+        return colors[(d as any).relationship] || '#999';
       })
       .attr('stroke-opacity', 0.6)
-      .attr('stroke-width', (d) => Math.sqrt(d.strength * 5));
+      .attr('stroke-width', (d) => Math.sqrt((d as any).strength * 5));
 
     // Create nodes
     const node = g.append('g')
@@ -112,14 +112,14 @@ const ForceGraph: React.FC<ForceGraphProps> = ({
           'algorithm': '#9c27b0',
           'pattern': '#f44336'
         };
-        return categoryColors[d.category as keyof typeof categoryColors] || '#666';
+        return categoryColors[(d as any).category as keyof typeof categoryColors] || '#666';
       })
       .attr('stroke', '#fff')
       .attr('stroke-width', 2);
 
     // Add labels
     node.append('text')
-      .text((d) => d.name)
+      .text((d) => (d as any).name)
       .attr('x', 0)
       .attr('y', -25)
       .attr('text-anchor', 'middle')
