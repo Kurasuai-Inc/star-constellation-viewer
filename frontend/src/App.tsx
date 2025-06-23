@@ -122,7 +122,7 @@ function App() {
         <div style={{ ...styles.centerContainer, color: '#e57373' }}>
           <div>
             <h3>❌ {error}</h3>
-            <p>APIサーバー (localhost:8000) を確認してください</p>
+            <p>APIサーバーを確認してください</p>
           </div>
         </div>
       </Layout>
