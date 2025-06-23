@@ -1,0 +1,25 @@
+{
+  "name": "star-constellation-viewer",
+  "version": "1.0.0",
+  "description": "知識ネットワークを美しい星座として可視化するインタラクティブなWebアプリケーション。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurasuai-Inc/star-constellation-viewer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Kurasuai-Inc/star-constellation-viewer/issues"
+  },
+  "homepage": "https://github.com/Kurasuai-Inc/star-constellation-viewer#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "playwright": "^1.53.1"
+  }
+}
