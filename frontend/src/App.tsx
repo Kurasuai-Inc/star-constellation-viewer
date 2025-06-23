@@ -52,7 +52,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://star-constellation-backend-production.up.railway.app/graph');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/graph`);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
         const data: ApiResponse = await response.json();
