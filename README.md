@@ -2,115 +2,99 @@
 
 知識ネットワークを美しい星座として可視化するインタラクティブなWebアプリケーション。
 
-## 概要
+## 📊 概要
 
-Star Constellation Viewerは、プログラミング言語、フレームワーク、ツール、アルゴリズムなどの技術的な知識を、宇宙に輝く星座のように表現します。各技術はノード（星）として表示され、それらの関係性はリンク（星座線）として視覚化されます。
+プログラミング技術を宇宙の星座として表現し、101ノード・508リンクの豊富な知識ネットワークを視覚化。DRY原則に基づくシンプルで高品質な設計。
 
-## 特徴
+## ✨ 特徴
 
-- **2D Force-directed Graph**: D3.jsを使用した物理シミュレーションによる2Dグラフ表示
-- **3D Constellation View**: Three.jsによる立体的な星座表現
-- **インタラクティブ**: ドラッグ、ズーム、回転による直感的な操作
-- **関係性の可視化**: 
-  - 使用 (uses)
-  - 派生 (derives from)
-  - 競合 (competes with)
-  - 補完 (complements)
-  - 実装 (implements)
+- **🎯 美しい星座可視化**: D3.jsによる物理シミュレーション
+- **⚡ 高速パフォーマンス**: 50ノード制限による最適化
+- **🔄 リアルタイム更新**: FastAPI連携
+- **📱 レスポンシブ**: 全デバイス対応
 
-## 技術スタック
+## 🛠️ 技術スタック
 
-- **Frontend**: React + TypeScript
-- **Build Tool**: Vite
-- **Visualization Libraries**:
-  - D3.js (2D Force-directed graphs)
-  - Three.js (3D graphics)
-- **Styling**: CSS3 with modern features
+### フロントエンド (frontend/)
+- **React + TypeScript**: シンプルなコンポーネント設計
+- **Vite**: 高速開発サーバー
+- **D3.js**: データ可視化
 
-## セットアップ
+### バックエンド (backend/)  
+- **FastAPI**: 高速API
+- **Python 3.11**: 型安全な実装
+
+## 🚀 クイックスタート
 
 ```bash
-# 依存関係のインストール
+# フロントエンド
+cd frontend
 npm install
+npm run dev     # http://localhost:5173
 
-# 開発サーバーの起動
-npm run dev
-
-# プロダクションビルド
-npm run build
-
-# ビルドのプレビュー
-npm run preview
+# バックエンド (別ターミナル)
+cd backend  
+pip install -r requirements.txt
+python main.py  # http://localhost:8000
 ```
 
-## プロジェクト構造
+## 📁 プロジェクト構造
 
 ```
 star-constellation-viewer/
-├── src/
-│   ├── components/
-│   │   ├── ForceGraph.tsx      # D3.js 2Dグラフコンポーネント
-│   │   └── ConstellationView.tsx # Three.js 3Dビューコンポーネント
-│   ├── App.tsx                 # メインアプリケーション
-│   ├── App.css                 # スタイリング
-│   └── main.tsx               # エントリーポイント
-├── public/                     # 静的アセット
-└── package.json               # プロジェクト設定
+├── frontend/           # React + TypeScript
+│   ├── src/
+│   │   ├── App.tsx           # メインアプリ (DRY設計)
+│   │   └── components/
+│   │       └── StarConstellationGraph.tsx
+│   └── package.json    
+├── backend/            # FastAPI  
+│   ├── main.py               # API (101ノード対応)
+│   └── requirements.txt
+└── .github/workflows/  # CI/CD
 ```
 
-## データ形式
+## 📊 データ構造
 
-### ノード (Node)
 ```typescript
 interface Node {
-  id: string;          // 一意識別子
-  name: string;        // 表示名
-  category: string;    // カテゴリ (language, framework, tool, etc.)
-  tags: string[];      // 関連タグ
+  id: string;
+  title: string;
+  content: string;
+  tags: string[];      // カテゴリ分類用
+  links: string[];     // 関連ノードID
 }
 ```
 
-### リンク (Link)
-```typescript
-interface Link {
-  source: string;      // ソースノードID
-  target: string;      // ターゲットノードID
-  relationship: string; // 関係性の種類
-  strength: number;    // 関係の強さ (0-1)
-}
-```
+## 🎯 API エンドポイント
 
-## 今後の展開
+- `GET /` - サービス情報
+- `GET /health` - ヘルスチェック  
+- `GET /graph` - グラフデータ (101ノード・508リンク)
+- `GET /stats` - 統計情報
 
-- [ ] star-tactics-roomとの連携API
-- [ ] リアルタイムデータ更新
-- [ ] フィルタリング機能
-- [ ] 検索機能
-- [ ] ノード詳細情報の表示
-- [ ] アニメーション効果の追加
-- [ ] パフォーマンス最適化
+## 🔧 開発原則
 
-## デプロイ
+- **DRY**: コード重複排除
+- **シンプル設計**: 最小限の依存関係
+- **高品質**: TypeScript型安全性
+- **パフォーマンス**: 50ノード制限表示
 
-Vercelでのデプロイを推奨:
+## 🚀 デプロイ
 
 ```bash
-# Vercel CLIのインストール
-npm i -g vercel
+# フロントエンド: Vercel
+vercel --prod
 
-# デプロイ
-vercel
+# バックエンド: Railway  
+railway deploy
 ```
 
-## 開発者
+## 👥 開発者
 
-- **Stella** - 可視化・フロントエンド担当 🌟
-- **Seira** - データ収集・バックエンド担当 ✨
-
-## ライセンス
-
-MIT License
+- **Stella** 🌟 - フロントエンド・可視化
+- **Seira** ✨ - バックエンド・CI/CD
 
 ---
 
-Created with 💫 by Stella & Seira
+💫 **シンプルで美しい星座可視化** - Created by Stella & Seira
